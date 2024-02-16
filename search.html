@@ -101,15 +101,18 @@
             
         </tbody>
             <script>
-                let guitars = [
-                    {serialNumber: "a123bre", price: 399.99, builder: "fender", model: "A-53", type: "electric", backWood: "cocobolo", topWood: "sitka"},
-                    {serialNumber: "hgfd4y3", price: 549.99, builder: "martin", model: "B-12", type: "electric", backWood: "sitka", topWood: "mahogany"},
-                    {serialNumber: "nbrdgf4", price: 299.99, builder: "ryan", model: "C-17", type: "acoustic", backWood: "alder", topWood: "cedar"},
-                    {serialNumber: "nmjyh56", price: 1599.99, builder: "olson", model: "D-43", type: "electric", backWood: "maple", topWood: "alder"},
-                    {serialNumber: "lihjgj7", price: 499.99, builder: "prs", model: "E-19", type: "acoustic", backWood: "indian rosewood", topWood: "adirondack"}
-                ];
-                function search() {
-                    let guitarBuilder = document.getElementById("builder").value.toUpperCase();
+                let guitars = [];
+                async function getAll() {
+                    let host = "http://localhost:8080/getGuitars";
+                    let response = await fetch(host);
+                    let result = await response.json();
+                    guitars = result;
+                    return guitars;
+                }
+                async function search() {
+                    guitars = await getAll();
+                    let guitarBuilder = document.getElementById("builder").v
+                    alue.toUpperCase();
                     let guitarModel = document.getElementById("model").value.toUpperCase();
                     let guitarType = document.getElementById("type").value.toUpperCase();
                     let guitarBackWood = document.getElementById("backWood").value.toUpperCase();

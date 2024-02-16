@@ -30,7 +30,9 @@
     <button onclick="addTheGuitar()" id = "addGuitar">Add the guitar</button>
 
     <script>
-        function addTheGuitar() {
+        let host = "http://localhost:8080"
+        async function addTheGuitar() {
+           let message = "";
            let guitarSerialNode = document.getElementById("serialNumber");
            let guitarSerial = guitarSerialNode.value;
            let guitarPriceNode = document.getElementById("price");
@@ -47,6 +49,20 @@
            let guitarTopWood = guitarTopWoodNode.value;
            let guitar = {serialNumber: guitarSerial, price: guitarPrice, builder: guitarBuilder, model: guitarModel, type: guitarType, backWood: guitarBackWood, topWood: guitarTopWood}
            alert("You entered: " + JSON.stringify(guitar));
+           let request = {
+            method: "POST",
+            headers: {
+                "Content-Type": "applications/json"
+            },
+            body: JSON.stringify(guitar)
+           };
+           let response = await fetch(host + "/add", request);
+           if(response.status = 200) {
+            message = "The Guitar was added successfully!";
+           } else {
+            message = "Something went wrong! Guitar data could not be saved.";
+           }
+           alert(message);
         }
     </script>
 

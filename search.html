@@ -7,44 +7,95 @@
         <title>Document</title>
     </head>
     <body>
+        <labe>Builder:</labe>
+        <input id="builder" />
+        <labe>Model:</labe>
+        <input id="model" />
         <labe>Type:</labe>
         <input id="type" />
+        <labe>Back wood:</labe>
+        <input id="backWood" />
+        <labe>Top wood:</labe>
+        <input id="topWood" />
         <button onclick="search()">Search</button>
     <br />
     </body>
+    <style>
+        body {
+            margin: 0;
+            padding: 2rem;
+        }
+        table {
+            text-align: left;
+            position: relative;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 0.25rem;
+        }
+        th {
+            background: white;
+            position: sticky;
+            top: 0;
+            box-shadow: 0 2px 2px -1px rgba(0,0,0,0.4);
+        }
+    </style>
     <table>
         <thead>
             <tr>
-                <th>Id</th>
+                <th>Serial Number</th>
+                <th>Price</th>
+                <th>Builder</th>
+                <th>Model</th>
                 <th>Type</th>
+                <th>Back Wood</th>
+                <th>Top Wood</th>
             </tr>
         </thead>
         <tbody id="searchResult">
+            
+        </tbody>
             <script>
-                let ducks = [
-                    {id: 1, type: "Mallard" },
-                    {id: 2, type: "Redhead" },
-                    {id: 3, type: "Decoy" },
-                    {id: 4, type: "Redhead" },
-                    {id: 5, type: "Redhead" },
-                    {id: 6, type: "Mallard" }
+                let guitars = [
+                    {serialNumber: "a123bre", price: 399.99, builder: "fender", model: "A-53", type: "electric", backWood: "cocobolo", topWood: "sitka"},
+                    {serialNumber: "hgfd4y3", price: 549.99, builder: "martin", model: "B-12", type: "electric", backWood: "sitka", topWood: "mahogany"},
+                    {serialNumber: "nbrdgf4", price: 299.99, builder: "ryan", model: "C-17", type: "acoustic", backWood: "alder", topWood: "cedar"},
+                    {serialNumber: "nmjyh56", price: 1599.99, builder: "olson", model: "D-43", type: "electric", backWood: "maple", topWood: "alder"},
+                    {serialNumber: "lihjgj7", price: 499.99, builder: "prs", model: "E-19", type: "acoustic", backWood: "indian rosewood", topWood: "adirondack"}
                 ];
                 function search() {
-                    let duckType = document.getElementById("type").value.toUpperCase();
+                    let guitarBuilder = document.getElementById("builder").value.toUpperCase();
+                    let guitarModel = document.getElementById("model").value.toUpperCase();
+                    let guitarType = document.getElementById("type").value.toUpperCase();
+                    let guitarBackWood = document.getElementById("backWood").value.toUpperCase();
+                    let guitarTopWood = document.getElementById("topWood").value.toUpperCase();
                     let table = document.getElementById("searchResult");
                     table.innerHTML = "";
-                    for (let duck of ducks) {
-                        if (!duckType || duck.type.toUpperCase() == duckType) {
+                    for (let guitar of guitars) {
+                        if (!guitarBuilder || guitar.builder.toUpperCase() == guitarBuilder) {
+                        if (!guitarModel || guitar.model.toUpperCase() == guitarModel) {
+                        if (!guitarType || guitar.type.toUpperCase() == guitarType) {
+                        if (!guitarBackWood || guitar.backWood.toUpperCase() == guitarBackWood) {
+                        if (!guitarTopWood || guitar.topWood.toUpperCase() == guitarTopWood) { {
                             let row = document.createElement("tr");
                             let cell1 = document.createElement("td");
-                            let id = document.createTextNode(duck.id);
-                            let type = document.createTextNode(duck.type);
-                            cell1.appendChild(id);
-                            cell1.appendChild(document.createTextNode(" "));
+                            let serialNumber = document.createTextNode(guitar.serialNumber + ", ");
+                            let price = document.createTextNode(guitar.price + ", ");
+                            let builder = document.createTextNode(guitar.builder + ", ");
+                            let model = document.createTextNode(guitar.model + ", ");
+                            let type = document.createTextNode(guitar.type + ", ");
+                            let backWood = document.createTextNode(guitar.backWood + ", ");
+                            let topWood = document.createTextNode(guitar.topWood);
+                            cell1.appendChild(serialNumber);
+                            cell1.appendChild(price);
+                            cell1.appendChild(builder);
+                            cell1.appendChild(model);
                             cell1.appendChild(type);
+                            cell1.appendChild(backWood);
+                            cell1.appendChild(topWood);
                             row.appendChild(cell1);
                             table.appendChild(row);
-                        }
+                        }}}}}}
                     }
                 }
             </script>

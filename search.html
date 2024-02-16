@@ -103,16 +103,15 @@
             <script>
                 let guitars = [];
                 async function getAll() {
-                    let host = "http://localhost:8080/getGuitars";
-                    let response = await fetch(host);
+                    let host = "http://localhost:8080";
+                    let response = await fetch(host + "/getGuitars");
                     let result = await response.json();
                     guitars = result;
                     return guitars;
                 }
                 async function search() {
                     guitars = await getAll();
-                    let guitarBuilder = document.getElementById("builder").v
-                    alue.toUpperCase();
+                    let guitarBuilder = document.getElementById("builder").value.toUpperCase();
                     let guitarModel = document.getElementById("model").value.toUpperCase();
                     let guitarType = document.getElementById("type").value.toUpperCase();
                     let guitarBackWood = document.getElementById("backWood").value.toUpperCase();

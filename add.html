@@ -6,21 +6,28 @@
     <title>Document</title>
 </head>
 <body>
-    <label>Serial Number:</label>
+    <a href="index.html" id = "back">Guitar Inventory Management</a>
+    <br />
+    <a href="about.html" id = "about">About</a>
+    <br />
+    <a href="add.html" id = "add">Add</a>
+    <br />
+    <a href="search.html" id = "search">Search</a>
+    <label id = "serialNumberLabel">Serial Number:</label>
     <input id="serialNumber"/>
-    <label>Price:</label>
+    <label id = "priceLabel">Price:</label>
     <input id="price" />
-    <label>Builder:</label> 
+    <label id = "builderLabel">Builder:</label> 
     <input id="builder">
-    <label>Model:</label>
+    <label id = "modelLabel">Model:</label>
     <input id="model"/>
-    <label>Type:</label>
+    <label id = "typeLabel">Type:</label>
     <input id="type" />
-    <label>Back wood:</label> 
+    <label id = "backWoodLabel">Back wood:</label> 
     <input id="backWood">
-    <label>Top wood:</label> 
+    <label id = topWoodLabel>Top wood:</label> 
     <input id="topWood">
-    <button onclick="addTheGuitar()">Add the guitar</button>
+    <button onclick="addTheGuitar()" id = "addGuitar">Add the guitar</button>
 
     <script>
         function addTheGuitar() {
@@ -44,4 +51,113 @@
     </script>
 
 </body>
+<style>
+a {
+font-family: 'Calibir', 'sans-serrif';
+font-weight: bold;
+}
+#back {
+left: 20px;
+top: 20px;
+font-size: 32px;
+position: absolute;
+color:coral;
+}
+#about {
+right: 150px;
+top: 20px;
+font-size: 16px;
+position: absolute;
+}
+#add {
+right: 110px;
+top: 20px;
+font-size: 16px;
+position: absolute;
+}
+#search {
+right: 50px;
+top: 20px;
+font-size: 16px;
+position: absolute;
+}
+#serialNumberLabel {
+left: 750px;
+position: absolute;
+top: 300px;
+}
+#serialNumber {
+left: 850px;
+position: absolute;
+top: 300px;
+}
+#priceLabel {
+left: 750px;
+position: absolute;
+top: 325px;
+}
+#price {
+left: 850px;
+position: absolute;
+top: 325px;
+}
+#builderLabel {
+left: 750px;
+position: absolute;
+top: 350px;
+}
+#builder {
+left: 850px;
+position: absolute;
+top: 350px;
+}
+#modelLabel {
+left: 750px;
+position: absolute;
+top: 375px;
+}
+#model {
+left: 850px;
+position: absolute;
+top: 375px;
+}
+#typeLabel {
+left: 750px;
+position: absolute;
+top: 400px;
+}
+#type {
+left: 850px;
+position: absolute;
+top: 400px;
+}
+#backWoodLabel {
+left: 750px;
+position: absolute;
+top: 425px;
+}
+#backWood {
+left: 850px;
+position: absolute;
+top: 425px;
+}
+#topWoodLabel {
+left: 750px;
+position: absolute;
+top: 450px;
+}
+#topWood {
+left: 850px;
+position: absolute;
+top: 450px;
+}
+#addGuitar {
+    left: 825px;
+    position: fixed;
+    top: 500px;
+}
+body {
+    background-color: khaki;
+}
+</style>
 </html>

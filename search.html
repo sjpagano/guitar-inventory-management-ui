@@ -106,6 +106,9 @@
                     let host = "http://localhost:8080";
                     let response = await fetch(host + "/getGuitars");
                     let result = await response.json();
+                    if (response.status != 200) {
+                        alert("There was an error fetching guitars from the database.")
+                    }
                     guitars = result;
                     return guitars;
                 }

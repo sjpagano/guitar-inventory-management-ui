@@ -79,9 +79,9 @@
            }
            let response = await fetch(host + "/add", request);
            if(response.status = 200) {
-            message = "The Guitar was added successfully!";
-           } else {
-            message = "Something went wrong! Guitar data could not be saved.";
+            message = "The guitar was added to the system.";
+           } else { 
+            message = "Something went wrong. Please try again or contact the customer support team.";
            }
            alert(message);
         }

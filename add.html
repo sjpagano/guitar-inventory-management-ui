@@ -47,8 +47,8 @@
            let guitarBackWood = guitarBackWoodNode.value;
            let guitarTopWoodNode = document.getElementById("topWood");
            let guitarTopWood = guitarTopWoodNode.value;
+           let fullGuitar = true;
            let guitar = {serialNumber: guitarSerial, price: guitarPrice, builder: guitarBuilder, model: guitarModel, type: guitarType, backWood: guitarBackWood, topWood: guitarTopWood}
-           alert("You entered: " + JSON.stringify(guitar));
            let request = {
             method: "POST",
             headers: {
@@ -56,27 +56,36 @@
             },
             body: JSON.stringify(guitar)
            };
-           if (guitarSerial == null) {
+           if (guitarSerial == "") {
             alert("Please enter a Serial number");
+            fullGuitar = false;
            }
-           if (guitarPrice == null) {
+           if (guitarPrice == "") {
             alert("Please enter a Price");
+            fullGuitar = false;
            }
-           if (guitarBuilder == null) {
+           if (guitarBuilder == "") {
             alert("Please enter a Builder");
+            fullGuitar = false;
            }
-           if (guitarModel == null) {
+           if (guitarModel == "") {
             alert("Please enter a Model");
+            fullGuitar = false;
            }
-           if (guitarType == null) {
+           if (guitarType == "") {
             alert("Please enter a Type");
+            fullGuitar = false;
            }
-           if (guitarBackWood == null) {
+           if (guitarBackWood == "") {
             alert("Please enter a Back wood");
+            fullGuitar = false;
            }
-           if (guitarTopWood == null) {
+           if (guitarTopWood == "") {
             alert("Please enter a Top wood");
+            fullGuitar = false;
            }
+           if (fullGuitar) {
+           alert("You entered: " + JSON.stringify(guitar));
            let response = await fetch(host + "/add", request);
            if(response.status = 200) {
             message = "The guitar was added to the system.";
@@ -84,6 +93,7 @@
             message = "Something went wrong. Please try again or contact the customer support team.";
            }
            alert(message);
+        }
         }
     </script>
 

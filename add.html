@@ -56,6 +56,27 @@
             },
             body: JSON.stringify(guitar)
            };
+           if (guitarSerial == null) {
+            alert("Please enter a Serial number");
+           }
+           if (guitarPrice == null) {
+            alert("Please enter a Price");
+           }
+           if (guitarBuilder == null) {
+            alert("Please enter a Builder");
+           }
+           if (guitarModel == null) {
+            alert("Please enter a Model");
+           }
+           if (guitarType == null) {
+            alert("Please enter a Type");
+           }
+           if (guitarBackWood == null) {
+            alert("Please enter a Back wood");
+           }
+           if (guitarTopWood == null) {
+            alert("Please enter a Top wood");
+           }
            let response = await fetch(host + "/add", request);
            if(response.status = 200) {
             message = "The Guitar was added successfully!";

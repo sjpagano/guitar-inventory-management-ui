@@ -103,7 +103,7 @@
             <script>
                 let guitars = [];
                 async function getAll() {
-                    let host = "http://localhost:8080";
+                    let host = "https://guitar-inventory-management-sjpagano.onrender.com";
                     let response = await fetch(host + "/getGuitars");
                     let result = await response.json();
                     if (response.status != 200) {
